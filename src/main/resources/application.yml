@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: springJPA
+  datasource:
+    url: jdbc:h2:./appdb
+    username: sa
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    generate-ddl: true
+
+# dd-auto: create -> it will always drop table if exists and create a new one at Spring startup
+    hibernate:
+      ddl-auto: create
+
+    show-sql: true
+
+
+server:
+  port: 8083
+
