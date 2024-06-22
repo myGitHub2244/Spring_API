@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>co.pragra.learning</groupId>
-    <artifactId>springJPA</artifactId>
+    <artifactId>springRESTAPI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springJPA</name>
-    <description>springJPA</description>
+    <name>springRESTAPI</name>
+    <description>springRESTAPI</description>
     <url/>
     <licenses>
         <license/>

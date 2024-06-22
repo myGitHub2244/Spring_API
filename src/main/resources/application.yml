@@ -1,6 +1,6 @@
 spring:
   application:
-    name: springJPA
+    name: springRESTAPI
   datasource:
     url: jdbc:h2:./appdb
     username: sa
@@ -12,7 +12,7 @@ spring:
   jpa:
     generate-ddl: true
 
-# dd-auto: create -> it will always drop table if exists and create a new one at Spring startup
+# dd-auto: create -> it will always drop table if exists and create a new one at Spring startup (DDL)
     hibernate:
       ddl-auto: create
 

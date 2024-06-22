@@ -1,7 +1,7 @@
-package co.pragra.learning.springjpa.service;
+package co.pragra.learning.springRESTAPI.service;
 
-import co.pragra.learning.springjpa.entities.Student;
-import co.pragra.learning.springjpa.repository.StudentRepo;
+import co.pragra.learning.springRESTAPI.entities.Student;
+import co.pragra.learning.springRESTAPI.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

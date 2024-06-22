@@ -1,7 +1,8 @@
-package co.pragra.learning.springjpa;
+package co.pragra.learning.springRESTAPI;
 
-import co.pragra.learning.springjpa.entities.Student;
-import co.pragra.learning.springjpa.service.StudentService;
+
+import co.pragra.learning.springRESTAPI.entities.Student;
+import co.pragra.learning.springRESTAPI.service.StudentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -10,11 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
-public class SpringJpaApplication {
+public class SpringRESTAPIApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(SpringRESTAPIApplication.class, args);
         StudentService studentService = context.getBean(StudentService.class);
 
         System.out.println();

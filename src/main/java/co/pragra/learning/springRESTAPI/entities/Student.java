@@ -1,4 +1,4 @@
-package co.pragra.learning.springjpa.entities;
+package co.pragra.learning.springRESTAPI.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

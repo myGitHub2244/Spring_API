@@ -1,6 +1,6 @@
-package co.pragra.learning.springjpa.repository;
+package co.pragra.learning.springRESTAPI.repository;
 
-import co.pragra.learning.springjpa.entities.Student;
+import co.pragra.learning.springRESTAPI.entities.Student;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
