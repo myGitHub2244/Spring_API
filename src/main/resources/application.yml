@@ -12,9 +12,10 @@ spring:
   jpa:
     generate-ddl: true
 
-# dd-auto: create -> it will always drop table if exists and create a new one at Spring startup (DDL)
+# dd-auto: create -> it will always drop table if exists and create a new one at Spring startup (DDL).
+# if we want to retain the table then use option :validate
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
 
     show-sql: true
 

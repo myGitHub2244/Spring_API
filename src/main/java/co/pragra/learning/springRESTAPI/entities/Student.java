@@ -2,6 +2,7 @@ package co.pragra.learning.springRESTAPI.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Student {
 
     @Id //it ensures the studentID is unique
-//    @GeneratedValue   --> Use this if we want the ID to be incremented automatically
+//  @GeneratedValue(strategy = GenerationType.AUTO)   --> Use this if we want the ID to be assigned and incremented automatically
     private Long studentID;
     private String firstName;
     private String lastName;

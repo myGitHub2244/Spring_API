@@ -32,9 +32,21 @@ public class StudentService {
         return studentRepo.findStudentByFirstName(firstName);
     }
 
+    public Optional<Student> getStudentByFirstNameAndStudentID(String firstName, Long studentID) {
+        return studentRepo.findStudentByFirstNameAndStudentID(firstName,studentID);
+    }
+
+    public Optional<Student> getStudentByFirstNameAndLastName(String firstName, String lastName) {
+        return studentRepo.findStudentByFirstNameAndLastName(firstName,lastName);
+    }
+
+
     public List<Student> getStudentsByLastName(String lastName,int pageNumber, int pageSize) {
         return studentRepo.findAllByLastName(lastName, PageRequest.of(pageNumber,pageSize));
     }
 
+    public List<Student> getAllStudentsByFirstName(String firstName) {
+        return studentRepo.findAllByFirstName(firstName);
+    }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
@@ -17,9 +18,51 @@ public class StudentAPI {
     @Autowired
     StudentService studentService;
 
+    @PostMapping("/addStudent")         //http://localhost:8083/student/addStudent
+    /*
+    Add below in Postman Body
+        {
+        "studentID": 6,
+        "firstName": "Rishabh",
+        "lastName": "Pant",
+        "phoneNumber": "33322211"
+        }
+     */
+    public String addStudent(@RequestBody Student student){
+        studentService.addStudent(student);
+        return "Student added "+student;
+    }
+
+    //http://localhost:8083/student/allStudents
+    @GetMapping("/allStudents")     //Fetch all Students from h2 database using StudentService
+    public List<Student> getAllStudents(){
+        System.out.println("GET method to fetch All Students");
+        return studentService.getAllStudents();
+    }
+
+    //http://localhost:8083/student/allByFirstName
+    @GetMapping("/allByFirstName")     //Fetch all Students from h2 database using StudentService
+    public List<Student> getAllStudentsByFirstName(@RequestParam String firstName){
+        System.out.println("GET method to fetch All Students by First Name: "+firstName);
+        return studentService.getAllStudentsByFirstName(firstName);
+    }
+
+    @GetMapping("/findByFirstNameAndStudentID")          //http://localhost:8083/student/findByFirstNameAndStudentID and Query Params
+    public Optional<Student> getStudentByFirstNameAndStudentID(@RequestParam String firstName, @RequestParam Long studentID){
+        System.out.println("GET method to fetch Student by First Name: "+firstName + " and Student ID: "+studentID);
+        return studentService.getStudentByFirstNameAndStudentID(firstName,studentID);
+    }
+
+    @GetMapping("/findByFirstNameAndLastName")          //http://localhost:8083/student/findByFirstNameAndLastName and Query Params
+    public Optional<Student> getStudentByFirstNameAndLastName(@RequestParam String firstName, @RequestParam String lastName){
+        System.out.println("GET method to fetch Student by First Name: "+firstName + " and Last Name: "+lastName);
+        return studentService.getStudentByFirstNameAndLastName(firstName,lastName);
+    }
+
+    //Additional methods for learning @PathVariable, RequestParam, RequestBody!
     @GetMapping("/hello1/{firstName}")
-    public String helloWorld1(@PathVariable String firstName,
-                              @RequestParam String lastName,
+    public String helloWorld1(@PathVariable String firstName,       //Pathvariable is part of URL. It is used as data to process
+                              @RequestParam String lastName,        //RequestParam/Query parms is provided as Params (key:value i.e. ?lastName=Jayswal) in Postman. It is used as data to process the Request
                               @RequestParam(value="email",required=false)String email){
         //http://localhost:8083/student/hello1/Pankaj?lastName=Jayswal&email=jaip22@yahoo.com
 
@@ -42,35 +85,10 @@ public class StudentAPI {
     public String helloWorld1a(@PathVariable String firstName,
                                @RequestParam String lastName,
                                @RequestParam(value="email",required=false) String email,
-                               @RequestBody String message){
+                               @RequestBody String message){        //RequestBody is provided in Body of Postman
         return "Hello World #1a"+" " +firstName+" "+lastName+" "+message;
     }
 
-
-    @PostMapping("/add")         //http://localhost:8083/student/add
-    /*
-    Add below in Postman Body
-        {
-        "studentID": 6,
-        "firstName": "Rishabh",
-        "lastName": "Pant",
-        "phoneNumber": "33322211"
-        }
-     */
-    public String addStudent(@RequestBody Student student){
-        studentService.addStudent(student);
-        return "Student added"+student;
-    }
-
-    @GetMapping("/all")     //Fetch all Students from h2 database using StudentService. Students were added via SpringRESTAPIApp
-    public List<Student> getAllStudents(){
-        System.out.println("GET method to fetch All Students");
-        List<Student> allStudents = studentService.getAllStudents();
-        allStudents.forEach(System.out::println);
-        return allStudents;
-    }
-
-    //Additional methods
     @RequestMapping(method = RequestMethod.GET,value = "/hello11")
     public String helloWorld11(){
         return "Hello World #11";
